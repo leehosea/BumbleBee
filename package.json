@@ -2,8 +2,9 @@
   "name": "bumblebee",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
+    "dev": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/leehosea/BumbleBee/issues"
   },
-  "homepage": "https://github.com/leehosea/BumbleBee#readme"
+  "homepage": "https://github.com/leehosea/BumbleBee#readme",
+  "devDependencies": {
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
 }
