@@ -4,8 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "webpack",
-    "start": "webpack-dev-server --open --hot"
+    "dev": "webpack-dev-server --config build/webpack.dev.config.js ",
+    "build": "webpack --mode production ",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,15 @@
   "homepage": "https://github.com/leehosea/BumbleBee#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.6",
     "html-webpack-plugin": "^4.5.2",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.0.0",
     "webpack": "^5.40.0",
-    "webpack-cli": "^4.7.2",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
