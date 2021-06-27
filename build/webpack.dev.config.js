@@ -1,49 +1,83 @@
 const path = require("path");
+const pkg = require('../package.json');
+const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    devtool: 'eval-source-map',
     mode: 'development',
-    entry: './src/index.js',
-    output: {
-        filename: 'BumbleBee.js',
-        path: path.resolve(__dirname, 'dist')
+    entry: {
+        main: './examples/main',
+        vendors: ['vue']
     },
+    output: {
+        path: path.join(__dirname, '../examples/dist'),
+        publicPath: '',
+        filename: '[name].js',
+        chunkFilename: '[name].chunk.js'
+    },
+    
     plugins: [
-        new CleanWebpackPlugin(),
+        new VueLoaderPlugin(),
+        // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
         new HtmlWebpackPlugin({
-            title: 'Bee project',
-            template: './examples/index.html'
-
+            inject: true,
+            filename: path.join(__dirname, '../examples/dist/index.html'),
+            template: path.join(__dirname, '../examples/index.html')
+        }),
+        new webpack.DefinePlugin({
+            'process.env.VERSION': `'${pkg.version}'`
         }),
     ],
     module: {
-        rules: [ // 定义css规则
-            // {
-            //     test: /\.less$/, // 正则匹配要识别的css，这里改成.less
-            //     use: [
-            //         {
-            //             loader: 'style-loader' // 使用style-loader进行处理，位置必须在css-loader前面
-            //         },
-            //         {
-            //             loader: 'css-loader' // 使用css-loader进行处理
-            //         },
-            //         {
-            //             loader: 'less-loader' // 引入less-loader
-            //         }
-            //     ]
-            // },
+        rules: [
             {
+                // https://vue-loader.vuejs.org/en/configurations/extract-css.html
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        css: [
+                            'vue-style-loader',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: true,
+                                },
+                            },
+                        ],
+                        less: [
+                            'vue-style-loader',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: true,
+                                },
+                            },
+                            // {
+                            //     loader: 'less-loader',
+                            //     options: {
+                            //         sourceMap: true,
+                            //     },
+                            // },
+                        ],
+                    },
+                    // postLoaders: {
+                    //     html: 'babel-loader?sourceMap'
+                    // },
+                    sourceMap: true,
+                }
             },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            }
+            // {
+            //     test: /\.js$/,
+            //     loader: 'babel-loader',
+            //     options: {
+            //         sourceMap: true,
+            //     },
+            //     exclude: /node_modules/,
+            // },
         ]
 
     },
