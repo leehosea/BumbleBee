@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h1>Bumble Bee</h1>
-    <Button></Button>
+  <div class="container">
+    <div>
+      <router-link to="/button">Button</router-link>
+    </div>
+    <div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>
