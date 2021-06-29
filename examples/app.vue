@@ -9,20 +9,12 @@
   </div>
 </template>
 <script>
-    module.exports = {
-        data: function() {
-            return {
-
-            }
-        },
-        mounted: function() {
-
-        },
-        beforeDestroy: function() {
-
-        },
-        methods: {
-
-        }
-    }
+export function data() {
+	return {};
+}
+export function mounted() {
+}
+export function beforeDestroy() {
+}
+export const methods={};
 </script>
