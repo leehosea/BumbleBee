@@ -3,7 +3,6 @@ const pkg = require('../package.json');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CssLoader = require('css-loader')
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -22,7 +21,6 @@ module.exports = {
 
     plugins: [
         new VueLoaderPlugin(),
-        // new CssLoader(),
         // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
         new HtmlWebpackPlugin({
             inject: true,

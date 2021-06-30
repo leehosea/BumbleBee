@@ -26,8 +26,3 @@ export default {
     }
 }
 </script>
-  <style lang="css">
-      .textfont{
-          color:red;
-      }
-  </style>

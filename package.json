@@ -19,8 +19,13 @@
   },
   "homepage": "https://github.com/leehosea/BumbleBee#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.6",
+    "eslint": "^7.29.0",
+    "eslint-plugin-vue": "^7.12.1",
     "html-webpack-plugin": "^4.5.2",
     "less": "^4.1.1",
     "less-loader": "^10.0.0",
