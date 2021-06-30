@@ -1,8 +1,12 @@
-import Button from "./components/button/index.js"
+import Button from "./components/Button/index.js"
+import Radio from "./components/Radio/index.js"
+import Table from "./components/Table/index.js"
 
 
 const components = {
-    Button
+    Button,
+    Radio,
+    Table
 }
 
 const bumblebee = {
@@ -12,7 +16,7 @@ const bumblebee = {
 //vue。use使用时，必须要有install方法。参数就是vue。
 const install = (Vue) => {
     //如果已注册，则不再执行注册
-    if (install.installed){
+    if (install.installed) {
         console.log('Component was already installed!!!');
         return;
     };

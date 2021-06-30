@@ -18,7 +18,15 @@ const router = new VueRouter({
         {
             path: '/button',
             component: (resolve) => require(['./routers/button.vue'], resolve)
-        }
+        },
+        {
+            path: '/radio',
+            component: (resolve) => require(['./routers/radio.vue'], resolve)
+        },
+        {
+            path: '/table',
+            component: (resolve) => require(['./routers/table.vue'], resolve)
+        },
     ]
 })
 

@@ -3,6 +3,7 @@ const pkg = require('../package.json');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CssLoader = require('css-loader')
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -18,9 +19,10 @@ module.exports = {
         filename: '[name].js',
         chunkFilename: '[name].chunk.js'
     },
-    
+
     plugins: [
         new VueLoaderPlugin(),
+        // new CssLoader(),
         // new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendor.bundle.js' }),
         new HtmlWebpackPlugin({
             inject: true,
@@ -70,14 +72,11 @@ module.exports = {
                     sourceMap: true,
                 }
             },
-            // {
-            //     test: /\.js$/,
-            //     loader: 'babel-loader',
-            //     options: {
-            //         sourceMap: true,
-            //     },
-            //     exclude: /node_modules/,
-            // },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+
         ]
 
     },
