@@ -1,6 +1,5 @@
 import Button from "./components/Button/index.js"
 import Radio from "./components/Radio/index.js"
-import Table from "./components/Table/index.js"
 import Input from "./components/Input/input.js"
 import Columns from "./components/TableBody/tableBody.js"
 
@@ -9,7 +8,6 @@ import Columns from "./components/TableBody/tableBody.js"
 const components = {
     Button,
     Radio,
-    Table,
     Input,
     Columns
 }

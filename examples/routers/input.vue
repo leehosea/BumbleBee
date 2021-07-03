@@ -5,6 +5,7 @@
        <Input placeholder="请输入内容" class="input-inner" v-model="input"></Input>
        <span class="input-icon">图标icon</span>
        <h2>禁用属性</h2>
+        <Input placeholder="请输入内容" class="input-inner" disabled></Input>
     </div>
 </template>
 <script>

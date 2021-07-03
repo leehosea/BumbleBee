@@ -26,10 +26,6 @@ const router = new VueRouter({
             component: (resolve) => require(['./routers/radio.vue'], resolve)
         },
         {
-            path: '/table',
-            component: (resolve) => require(['./routers/table.vue'], resolve)
-        },
-        {
             path: '/tableBody',
             component: (resolve) => require(['./routers/tableBody.vue'], resolve)
         },

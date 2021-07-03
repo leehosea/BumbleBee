@@ -1,12 +1,19 @@
 <template>
-       <table border="1">
-         <tbody :columns="columns">
-            <tr v-for="item in columns" :key="item.id">
+       <table border="1" cellspacing="0" cellpadding="0" :data="data">
+
+        <thead>
+           <tr >
+             <th v-for="item in (data.columnHead)" :key="item.id" >{{item.label}} </th>
+           </tr>
+       </thead>
+
+         <tbody>
+            <tr v-for="item in (data.columsBody)" :key="item.id">
              <td >{{item.id}} </td>
              <td >{{item.name}} </td>
              <td >{{item.age}} </td>
-             <td >{{item.depart}} </td>
              <td >{{item.address}} </td>
+               <td >{{item.depart}} </td>
            </tr>
        </tbody>
        </table>
@@ -16,9 +23,12 @@
 export default {
     name:"Columns",
     props:{
-        columns:{
-            type:Array
-        }
+        data:{
+            type:Object,
+            required:true
+            
+        },
+          
     },
     data:function(){
       return {
@@ -26,7 +36,7 @@ export default {
       }
     },
     created(){
-       
+       console.log(this.data)
     },
     methods:{
        
@@ -38,4 +48,19 @@ export default {
     // }
 }
 </script>
+
+<style lang="css" scoped>
+  table{
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    font-size: 14px;
+    color: #606266;
+    text-align: center;
+  }
+</style>
 
