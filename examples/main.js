@@ -14,10 +14,12 @@ Vue.use(BumbleBee, {
 const router = new VueRouter({
     esMoudle: false,
     mode: 'history',
+    base: '/',
     routes: [
         {
             path: '/button',
-            component: (resolve) => require(['./routers/button.vue'], resolve)
+            component: (resolve) => require(['./routers/button.vue'], resolve),
+
         },
         {
             path: '/radio',
@@ -27,6 +29,14 @@ const router = new VueRouter({
             path: '/table',
             component: (resolve) => require(['./routers/table.vue'], resolve)
         },
+        {
+            path: '/tableBody',
+            component: (resolve) => require(['./routers/tableBody.vue'], resolve)
+        },
+        {
+            path: '/input',
+            component: (resolve) => require(['./routers/input.vue'], resolve)
+        }
     ]
 })
 

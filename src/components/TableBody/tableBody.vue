@@ -1,25 +1,22 @@
 <template>
        <table border="1">
-       <thead>
-           <tr >
-             <th v-for="item in tableHead" :key="item.id" :tableHead="tableHead">{{item.label}} </th>
+         <tbody :columns="columns">
+            <tr v-for="item in columns" :key="item.id">
+             <td >{{item.id}} </td>
+             <td >{{item.name}} </td>
+             <td >{{item.age}} </td>
+             <td >{{item.depart}} </td>
+             <td >{{item.address}} </td>
            </tr>
-       </thead>
-         <!-- <tbody>
-           <tr>
-             <td>0098777</td>
-             <td>小明</td>
-             <td>12</td>
-         </tr>
-       </tbody> -->
+       </tbody>
        </table>
 </template>
 
 <script>
 export default {
-    name:"Table",
+    name:"Columns",
     props:{
-        tableHead:{
+        columns:{
             type:Array
         }
     },
