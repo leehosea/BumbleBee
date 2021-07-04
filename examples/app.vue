@@ -3,6 +3,7 @@
     <div>
       <router-link to="/button">Button</router-link>
       <router-link to="/radio">Radio</router-link>
+      <router-link to="/checkBox">CheckBox</router-link>
       <router-link to="/input">Input</router-link>
       <router-link to="/tableBody">Columns</router-link>
     </div>

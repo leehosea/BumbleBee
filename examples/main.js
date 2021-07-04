@@ -26,6 +26,10 @@ const router = new VueRouter({
             component: (resolve) => require(['./routers/radio.vue'], resolve)
         },
         {
+            path: '/checkBox',
+            component: (resolve) => require(['./routers/checkBox.vue'], resolve)
+        },
+        {
             path: '/tableBody',
             component: (resolve) => require(['./routers/tableBody.vue'], resolve)
         },

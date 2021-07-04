@@ -1,5 +1,6 @@
 import Button from "./components/Button/index.js"
 import Radio from "./components/Radio/index.js"
+import CheckBox from "./components/CheckBox/index"
 import Input from "./components/Input/input.js"
 import Columns from "./components/TableBody/tableBody.js"
 
@@ -8,8 +9,9 @@ import Columns from "./components/TableBody/tableBody.js"
 const components = {
     Button,
     Radio,
+    CheckBox,
     Input,
-    Columns
+    Columns,
 }
 
 const bumblebee = {
