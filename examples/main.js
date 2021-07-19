@@ -1,16 +1,17 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
 import App from '../examples/app.vue';
 import BumbleBee from '../src/index.js';
-
-Vue.config.debug = true;
-
+import ElementUI from 'element-ui';
+import VueRouter from 'vue-router';
+import axios from 'axios'
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(VueRouter);
-
+Vue.use(ElementUI);
+Vue.prototype.$axios = axios;
 Vue.use(BumbleBee, {
     capture: true
 });
-
+Vue.config.debug = true;
 const router = new VueRouter({
     esMoudle: false,
     mode: 'history',
@@ -36,7 +37,20 @@ const router = new VueRouter({
         {
             path: '/input',
             component: (resolve) => require(['./routers/input.vue'], resolve)
-        }
+        },
+        {
+            path: '/eleTable',
+            component: (resolve) => require(['./routers/eleTable.vue'], resolve)
+        },
+        {
+            path: '/editTable',
+            component: (resolve) => require(['./routers/editTable.vue'], resolve)
+        },
+        {
+            path: '/handleTable',
+            component: (resolve) => require(['./routers/handleTable.vue'], resolve)
+        },
+        
     ]
 })
 

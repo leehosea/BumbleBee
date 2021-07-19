@@ -6,6 +6,9 @@
       <router-link to="/checkBox">CheckBox</router-link>
       <router-link to="/input">Input</router-link>
       <router-link to="/tableBody">Columns</router-link>
+      <router-link to="/eleTable">EleTable</router-link>
+        <router-link to="/editTable">EditTable</router-link>
+        <router-link to="./handleTable">HandleTable</router-link>
     </div>
     <div>
       <router-view></router-view>

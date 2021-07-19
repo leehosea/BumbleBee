@@ -1,0 +1,152 @@
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    font-weight: normal;
+    font-family: "Microsoft Yahei";
+    box-sizing: border-box;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-font-smoothing: antialiased;
+    &:hover{
+        outline: none;
+    }
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+/*::-webkit-scrollbar
+{
+    width: 10px;
+    height: 10px;
+    background-color: #F5F5F5;
+}*/
+
+/*定义滚动条轨道 内阴影+圆角*/
+/*::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}*/
+
+/*定义滑块 内阴影+圆角*/
+/*::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}*/
+
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea { -webkit-appearance: none;}
+
+html,body{
+    height: 100%;
+    width: 100%;
+  background-color: #fff;
+  overflow: auto;
+}
+
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.clear{
+    zoom:1;
+}
+
+.back_img{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.margin{
+    margin: 0 auto;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.paddingTop{
+    padding-top: 1.95rem;
+}
+
+@keyframes backOpacity{
+   0%   { opacity: 1 }
+   25%  { opacity: .5 }
+   50%  { opacity: 1 }
+   75%  { opacity: .5 }
+   100% { opacity: 1 }
+}
+
+.animation_opactiy{
+    animation: backOpacity 2s ease-in-out infinite;
+}
+
+/*.fade-enter-active, .fade-leave-active{//过渡期
+  transition: all 0.8s;
+}
+.fade-enter, &.fade-leave-to{//元素进入之前和离开之后的样式
+  opacity: 0;
+}*/
+/* 全局定义表格样式*/
+.el-table__header  tr th{background-color: #EDF2F9;color:#000;}
+.el-table th,.el-table td{border-color: #D1DEEC;padding:5px 0;}
+.el-table td{font-size:12px;}
+.el-table td .cell{line-height:22px;}
+.el-table--border{border-color: #D1DEEC;border-right: solid 1px #D1DEEC;}
+.el-table td, .el-table th.is-leaf{border-bottom: solid 1px #D1DEEC;}
+.el-table__fixed-right-patch{background-color: #EDF2F9;border-bottom: solid 1px #D1DEEC;}
+.el-table--border th.gutter:last-of-type{border-bottom: solid 1px #D1DEEC;}
+.el-table td.textright{text-align:right}
+.table-page{height:40px;border:solid 1px #D1DEEC;
+  .el-pagination{margin-top:3px;margin-left:10px;}
+  .el-input--mini .el-input__inner{height:24px;line-height:24px;}
+  .el-pagination__editor.el-input .el-input__inner{height:24px;}
+  .el-pager li{height:24px;line-height:24px;margin-top:2px}
+  .el-pager li.active{background-color: #409EFF;color:#fff;border-radius:4px;}
+}
+
+/*弹窗样式*/
+.dialogYs{width:80%;height:80%;position:absolute;top:10%;left:10%;margin:0 !important;}
+.dialogYs .el-dialog__header{padding:8px 8px 8px 10px;background-color: #409EFF;color:#fff;}
+.dialogYs .el-dialog__header .el-dialog__title{color:#fff;font-size:16px;}
+.dialogYs .el-dialog__header button.el-dialog__headerbtn{top:10px;}
+.dialogYs .el-dialog__header button.el-dialog__headerbtn .el-icon-close{color:#fff;font-size:18px;}
+.dialogYs .el-dialog__body{width:100%;height:calc(100% - 40px);padding:0px;}
+
+.el-loading-mask{background-color: rgba(255,255,255,0.3);}
+
+.text-right{width:100%;text-align:right;}
+
+/*表单样式*/
+.el-input__inner{border:solid 1px #A0B3D3;}
+.el-select .el-input .el-select__caret{color: #A0B3D3}
+
+/*按钮样式*/
+.el-button--text span{text-decoration: underline;}
