@@ -1,28 +1,27 @@
         <template>
         <div>
         <el-button type="primary" @click="add()">新增</el-button>
-        <el-table :data="tableData" style="width: 100%">
+        <el-table :data="tableData" style="width: 100%" border >
         <el-table-column 
-        v-for="(item,index) in columData"
-        fixed 
-        :key="item.index"
-        :prop="item.prop"
-        :label="item.label"
-        :min-width="item.width"
-        >
-        <template slot-scope="scope">
-        <el-input v-if="scope.row.isEdit" v-model="scope.row.date" placeholder="请输入内容"></el-input>
-        <span v-else>{{scope.row.date}}</span>
-        </template>
+            v-for="(item,index) in columData"
+            fixed 
+            :key="item.index"
+            :prop="item.prop"
+            :label="item.label"
+            :min-width="item.width"
+          >
+         <template slot-scope="scope">
+                <el-input v-if="scope.row.isEdit" v-model="scope.row.zipCode" placeholder="请输入内容"></el-input>
+                <span v-else>{{scope.row.zipCode}}</span>
+          </template>
         </el-table-column> 
-         <el-table-column fixed="right" label="操作" min-width="100">
-        <template slot-scope="scope">
-        <el-button type="text" size="small" v-if="!scope.row.isEdit" @click="edit(scope.row)">编辑</el-button>
-        <el-button type="text" size="small" v-if="scope.row.isEdit">保存</el-button>
-        <el-button type="text" size="small" v-if="scope.row.isEdit" @click="cancel(scope.row, scope.$index)">取消
-        </el-button>
-        </template>
-        </el-table-column> 
+                <el-table-column fixed="right" label="操作" min-width="100">
+                    <template slot-scope="scope">
+                            <el-button type="text" size="small" v-if="!scope.row.isEdit" @click="edit(scope.row)">编辑</el-button>
+                            <el-button type="text" size="small" v-if="scope.row.isEdit">保存</el-button>
+                            <el-button type="text" size="small" v-if="scope.row.isEdit" @click="cancel(scope.row, scope.$index)">取消</el-button>
+                    </template>
+                   </el-table-column> 
         </el-table>
         </div>
         </template>
@@ -74,8 +73,8 @@
          },
 
          edit(row){
-                           row['oldRow'] = JSON.parse(JSON.stringify(row))
-                           row.isEdit = true  
+              row['oldRow'] = JSON.parse(JSON.stringify(row))
+              row.isEdit = true  
          },
          cancle(row,index){
             if(row.isAdd){

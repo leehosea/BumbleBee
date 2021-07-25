@@ -3,6 +3,11 @@ const pkg = require('../package.json');
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const express = require('express')
+const app = express()
+const result = require('../mock/list.json') // 列表数据源
+const routes = express.Router()
+app.use('/api', routes)
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -84,6 +89,14 @@ module.exports = {
 
     },
     devServer: {
+        before(app){
+            app.get('/api/result', (req, res) => {
+              res.json({
+                errno:0,
+                data:result
+              })
+            })
+          },
         historyApiFallback: true,
         contentBase: path.join(__dirname, 'dist'),
         port: 9000,

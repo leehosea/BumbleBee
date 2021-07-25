@@ -6,6 +6,7 @@ import Input from './components/Input/input.js';
 import Columns from './components/TableBody/tableBody.js';
 import EditTable from './components/EditTable/editTable.js';
 import HandleTable from './components/HandleTable/handleTable.js';
+import TreeCom from './components/TreeCom/treeCom.js';
 
 const components = {
 	Button,
@@ -15,7 +16,8 @@ const components = {
 	Columns,
 	EleTable,
     EditTable,
-	HandleTable
+	HandleTable,
+	TreeCom
 };
 
 const bumblebee = {

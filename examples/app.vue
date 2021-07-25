@@ -1,14 +1,15 @@
 <template>
   <div class="container">
-    <div>
-      <router-link to="/button">Button</router-link>
-      <router-link to="/radio">Radio</router-link>
-      <router-link to="/checkBox">CheckBox</router-link>
-      <router-link to="/input">Input</router-link>
-      <router-link to="/tableBody">Columns</router-link>
-      <router-link to="/eleTable">EleTable</router-link>
+    <div id="content">
+        <router-link to="/button" tag="span">Button</router-link>
+        <router-link to="/radio">Radio</router-link>
+        <router-link to="/checkBox">CheckBox</router-link>
+        <router-link to="/input">Input</router-link>
+        <router-link to="/tableBody">Columns</router-link>
+        <router-link to="/eleTable">EleTable</router-link>
         <router-link to="/editTable">EditTable</router-link>
         <router-link to="./handleTable">HandleTable</router-link>
+        <router-link to="./treeCom">TreeCom</router-link>
     </div>
     <div>
       <router-view></router-view>
@@ -40,3 +41,13 @@
         }
     }
 </script>
+<style lang="css" scoped>
+ #content{
+   height: 100%;
+   width:50%;
+   padding: 2% 1%;
+   background-color: aqua;
+   margin-bottom:5px;
+   
+ }
+</style>

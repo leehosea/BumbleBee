@@ -50,6 +50,10 @@ const router = new VueRouter({
             path: '/handleTable',
             component: (resolve) => require(['./routers/handleTable.vue'], resolve)
         },
+        {
+            path:'/treeCom',
+            component:(resolve) => require(['./routers/treeCom.vue'],resolve)
+        }
         
     ]
 })
