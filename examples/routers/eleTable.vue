@@ -61,13 +61,7 @@ export default {
                         label: '状态', //<String>   表头标签
                         align: 'center'//表头内容是否居中
                     },
-                      {
-                        hasSort: true, //<Boolean> 是否排序
-                        isShow: true, //<Boolean> 是否展示
-                        prop: 'action', //<String>  对应属性名
-                        label: '操作', //<String>   表头标签
-                        align: 'center'//表头内容是否居中
-                    }
+                 
                 ]
       }
    },
@@ -82,14 +76,15 @@ export default {
               if(!res.errno){
                 setTimeout(()=>{
                       this.dataSource=res.data.data.result.List
-                },5000)
-                 let obj = {}
-                res.data.data.result.pageParams.forEach(item=> {
+                       let obj = {}
+                      res.data.data.result.pageParams.forEach(item=> {
                       obj['pageNum'] = item.pageNum
                        obj['pageSize'] = item.pageSize
                         obj['total'] = item.total
                 }) 
                 this.pageParams = obj
+                },5000)
+                
               }
             })
               .catch(function(error){

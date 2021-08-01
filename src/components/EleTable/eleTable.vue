@@ -1,19 +1,20 @@
 <template>
     <div v-if='reloadFlag'>
        <el-table
+        row-key="id"
         :data="tableData" 
          ref= 'tableRoot'
          v-bind="$attrs"
           v-loading="loading"
-          :element-loading-text = 'elementLoadingText'
+           :element-loading-text = 'elementLoadingText'
        >
       <el-table-column
        v-for="(column, index) in columns"
         header-align="center" 
         v-if="column.isShow" 
         :sortable="column.hasSort"
-        :key="index"
-        :prop="column.prop" 
+        :key="`tableHeader.${index}`"
+        :prop="columns[index].prop"
         :label="column.label" 
         :align="column.align"
         >
@@ -39,6 +40,7 @@
     </div>
 </template>
 <script>
+import Sortable from 'sortablejs'
 export default {
     name:'EleTable',
    data() {
@@ -53,8 +55,8 @@ export default {
         totalNum:10,
         reloadFlag:true,
         loading:this.$attrs.loading,
-        elementLoadingText:this.$attrs.elementLoadingText
-
+        elementLoadingText:this.$attrs.elementLoadingText,
+        tableHeader: this.columns.slice()
       }
    },
    props:{
@@ -76,9 +78,43 @@ export default {
             }
    },
    mounted(){
+       // 阻止默认行为
+     document.body.ondrop = function (event) {
+       event.preventDefault()
+       event.stopPropagation()
+     };
+    this.rowDrop()
+    this.columnDrop()
        this.fokeData(this.currentPage,this.pageSize)
    },
    methods:{
+   
+ //行拖拽
+    rowDrop() {
+      const tbody = document.querySelector('.el-table__body-wrapper tbody')
+      const _this = this
+      Sortable.create(tbody, {
+        onEnd({ newIndex, oldIndex }) {
+          const currRow = _this.tableData.splice(oldIndex, 1)[0]
+          _this.tableData.splice(newIndex, 0, currRow)
+        }
+      })
+    },
+
+columnDrop() {
+      const wrapperTr = document.querySelector('.el-table__header-wrapper tr')
+      this.sortable = Sortable.create(wrapperTr, {
+        animation: 180,
+        delay: 0,
+        onEnd: evt => {
+          const oldItem = this.tableHeader[evt.oldIndex]
+          this.tableHeader.splice(evt.oldIndex, 1)
+          this.tableHeader.splice(evt.newIndex, 0, oldItem)
+        }
+      })
+    },
+
+
      reloadData:function(){
            this.reloadFlag = false;//先销毁组件
            this.loading = true
@@ -103,7 +139,8 @@ export default {
      },
      nextPage:function(){},
      jumpFirst:function(){},
-     jumpLast:function(){}
+     jumpLast:function(){},
+
    },
    watch:{
      dataSource:{
@@ -125,12 +162,70 @@ export default {
      },
      loading(val){
         this.loading = val
-     }
+     },
+     columns (val, oldVal) {
+       console.log(val)
+      this.tableData = val
+    }
 
    }
 }
 </script>
 <style lang="css">
+
+/* 　 .w-table .el-table .darg_start {
+   background-color: #767666; 
+  }
+ .w-table .el-table th {
+    padding: 0;
+  }
+   .w-table  .el-table th .virtual{
+      position: fixed;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-left: -10px;
+      background: none;
+      border: none;
+    }
+    
+     .w-table .el-table .darg_active_left .virtual {
+        border-left: 2px dotted red;
+        z-index: 99;
+      }
+    
+    
+      .w-table .el-table .darg_active_left .virtual .darg_active_right .virtual {
+        border-right: 2px dotted rgb(5, 5, 5);
+        z-index: 99;
+      
+    }
+  
+   .w-table .el-table .thead-cell {
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: left;
+    cursor: pointer;
+    overflow: initial;
+   }
+    .w-table .el-table .thead-cell :before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  
+   .w-table_moving  .el-table th .thead-cell{
+      cursor: move !important;
+    }
+   .w-table_moving .el-table__fixed {
+      cursor: not-allowed;
+    } */
+  
+
 /* .page{
   width:100%;
   border-top:1px solid #2E95FF;
@@ -150,6 +245,7 @@ export default {
    cursor:pointer;
   font-weight: normal;
 } */
+
   
 </style>
 

@@ -5,7 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const express = require('express')
 const app = express()
-const result = require('../mock/list.json') // 列表数据源
+const result = require('../mock/formItmList.json') // 列表数据源
 const routes = express.Router()
 app.use('/api', routes)
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');

@@ -1,12 +1,13 @@
 import Button from './components/Button/index.js';
-import EleTable from './components/EleTable/eleTable';
+import EleTable from './components/EleTable/eleTable.js';
 import Radio from './components/Radio/index.js';
-import CheckBox from './components/CheckBox/index';
+import CheckBox from './components/CheckBox/index.js';
 import Input from './components/Input/input.js';
 import Columns from './components/TableBody/tableBody.js';
 import EditTable from './components/EditTable/editTable.js';
 import HandleTable from './components/HandleTable/handleTable.js';
 import TreeCom from './components/TreeCom/treeCom.js';
+import DynamicForm from './components/DynamicForm/index.js';
 
 const components = {
 	Button,
@@ -17,7 +18,8 @@ const components = {
 	EleTable,
     EditTable,
 	HandleTable,
-	TreeCom
+	TreeCom,
+	DynamicForm
 };
 
 const bumblebee = {

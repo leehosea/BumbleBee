@@ -10,6 +10,7 @@
         <router-link to="/editTable">EditTable</router-link>
         <router-link to="./handleTable">HandleTable</router-link>
         <router-link to="./treeCom">TreeCom</router-link>
+             <router-link to="./dynamicForm">DynamicForm</router-link>
     </div>
     <div>
       <router-view></router-view>

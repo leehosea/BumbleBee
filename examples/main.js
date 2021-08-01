@@ -53,6 +53,10 @@ const router = new VueRouter({
         {
             path:'/treeCom',
             component:(resolve) => require(['./routers/treeCom.vue'],resolve)
+        },
+        {
+            path:'/dynamicForm',
+            component:(resolve) => require(['./routers/dynamicForm.vue'],resolve)
         }
         
     ]
